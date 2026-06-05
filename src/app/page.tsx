@@ -1,65 +1,92 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import GameGrid from "@/components/game/GameGrid";
+import { DEMO_GAMES } from "@/lib/demo-data";
+import { CATEGORIES } from "@/types/game";
+import { Game } from "@/types/game";
+import { getGames } from "@/lib/firebase/games";
+
+export default function HomePage() {
+  const [games, setGames] = useState<Game[]>(DEMO_GAMES);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchGames() {
+      try {
+        const firestoreGames = await getGames(100);
+        if (firestoreGames.length > 0) {
+          setGames(firestoreGames);
+        }
+        // Firestore boşsa demo veriler kalır
+      } catch (err) {
+        console.log("Firestore'dan veri çekilemedi, demo veriler kullanılıyor:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchGames();
+  }, []);
+
+  const popularGames = [...games].sort(
+    (a, b) => b.metrics.playCount - a.metrics.playCount
+  );
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* Kategori Chips */}
+      <div className="category-chips" id="category-chips">
+        {CATEGORIES.map((cat) => (
+          <Link key={cat.slug} href={`/kategori/${cat.slug}`} className="category-chip">
+            <span>{cat.icon}</span>
+            {cat.name}
+          </Link>
+        ))}
+      </div>
+
+      {/* Küçük Hero */}
+      <div className="hero-banner" id="hero-banner">
+        <h1 className="hero-title">
+          Hemen oynamaya başla! <span>🚀</span>
+        </h1>
+        <p className="hero-subtitle">
+          Yüzlerce ücretsiz oyun — indirme yok, kayıt yok
+        </p>
+      </div>
+
+      {/* Popüler */}
+      <section id="popular-games">
+        <div className="section-header">
+          <h2 className="section-title">Bu hafta popüler</h2>
+          <Link href="/kategori/populer" className="section-link">Tümü</Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        {loading ? (
+          <div className="game-grid game-grid-large">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="skeleton" style={{ aspectRatio: "1/1" }} />
+            ))}
+          </div>
+        ) : (
+          <GameGrid games={popularGames.slice(0, 12)} large />
+        )}
+      </section>
+
+      {/* Yeni eklenenler */}
+      <section id="new-games">
+        <div className="section-header">
+          <h2 className="section-title">Yeni eklenenler</h2>
         </div>
-      </main>
-    </div>
+        <GameGrid games={[...games].reverse().slice(0, 6)} />
+      </section>
+
+      {/* Tüm Oyunlar */}
+      <section id="all-games">
+        <div className="section-header">
+          <h2 className="section-title">Tüm Oyunlar</h2>
+        </div>
+        <GameGrid games={games} large />
+      </section>
+    </>
   );
 }
