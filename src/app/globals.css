@@ -3,12 +3,12 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ==========================================================
-   OyunLimanı — Poki-benzeri ama özgün tasarım
+   OyunLimanı — Özgün oyun platformu tasarımı
    Renkli arkaplan + Mozaik grid + Minimal header
    ========================================================== */
 
 :root {
-  /* Arkaplan: Canlı gradient (Poki turkuaz yerine bizim imza rengimiz) */
+  /* Arkaplan: Canlı gradient — OyunLimanı imza renkleri */
   --bg-main: #e8f8ee;
   --bg-accent: #b8f0d0;
   --bg-card: #ffffff;
@@ -50,7 +50,7 @@ body {
 ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
 
 /* ==========================================================
-   HEADER — Minimal, yuvarlak, Poki benzeri ama farklı
+   HEADER — Minimal, yuvarlak, floating tasarım
    ========================================================== */
 .header {
   position: sticky;
@@ -292,7 +292,7 @@ body {
 }
 
 /* ==========================================================
-   MOZAİK GRID — Poki'nin imza layout'u (farklı boyutlarda kartlar)
+   MOZAİK GRID — Farklı boyutlarda kart düzeni
    ========================================================== */
 .game-grid {
   display: grid;
@@ -319,7 +319,7 @@ body {
 }
 
 /* ==========================================================
-   OYUN KARTI — Sadece görsel, hover'da isim (Poki benzeri)
+   OYUN KARTI — Sadece görsel, hover'da isim göster
    ========================================================== */
 .game-card {
   position: relative;
@@ -460,7 +460,7 @@ body {
 }
 
 /* ==========================================================
-   HERO BANNER — Yok! Poki gibi direkt oyunlar gösteriyoruz.
+   HERO BANNER — Kompakt banner, direkt oyunlar göster
    Ama küçük bir hoş geldin mesajı var.
    ========================================================== */
 .hero-banner {

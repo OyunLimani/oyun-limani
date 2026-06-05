@@ -28,7 +28,7 @@ export interface Category {
   gameCount?: number;
 }
 
-// Önceden tanımlı kategoriler (Poki tarzı)
+// Önceden tanımlı kategoriler
 export const CATEGORIES: Category[] = [
   { name: "Popüler", slug: "populer", icon: "🔥" },
   { name: "Aksiyon", slug: "aksiyon", icon: "⚔️" },

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "OyunLimanı - Ücretsiz Online Oyunlar",
   description:
     "OyunLimanı - Ücretsiz online HTML5 oyunları oyna! Aksiyon, bulmaca, yarış ve daha fazlası. İndirme yok, kayıt yok!",
-  keywords: "ücretsiz oyunlar, online oyunlar, html5 oyunlar, tarayıcı oyunları, poki",
+  keywords: "ücretsiz oyunlar, online oyunlar, html5 oyunlar, tarayıcı oyunları, oyun sitesi",
 };
 
 export default function RootLayout({
