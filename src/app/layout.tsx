@@ -24,15 +24,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr">
-      <head>
+      <body className={inter.className}>
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3290834929306937"
           crossOrigin="anonymous"
           strategy="beforeInteractive"
         />
-      </head>
-      <body className={inter.className}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
