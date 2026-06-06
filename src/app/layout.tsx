@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   description:
     "OyunLimanı - Ücretsiz online HTML5 oyunları oyna! Aksiyon, bulmaca, yarış ve daha fazlası. İndirme yok, kayıt yok!",
   keywords: "ücretsiz oyunlar, online oyunlar, html5 oyunlar, tarayıcı oyunları, oyun sitesi",
+  other: {
+    "google-adsense-account": "ca-pub-3290834929306937",
+  },
 };
 
 export default function RootLayout({
