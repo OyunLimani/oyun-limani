@@ -1034,3 +1034,320 @@ body {
   .legal-content { padding: 18px 18px; border-radius: 16px; }
   .legal-section h2 { font-size: 1rem; }
 }
+
+/* ==========================================================
+   OYUN TOOLBAR — Beğeni, Paylaşım, Tam Ekran
+   ========================================================== */
+.game-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: #fff;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-card);
+  gap: 12px;
+}
+
+.game-toolbar-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.game-toolbar-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  background: #f0f2f5;
+  border: none;
+  border-radius: 50px;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.toolbar-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.toolbar-btn:hover {
+  background: #e4e6e9;
+  color: var(--text-primary);
+}
+
+.toolbar-btn-active {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.toolbar-btn-active:hover {
+  background: rgba(239, 68, 68, 0.18);
+  color: #dc2626;
+}
+
+.toolbar-btn-whatsapp:hover {
+  background: rgba(37, 211, 102, 0.12);
+  color: #25d366;
+}
+
+.toolbar-btn-fullscreen {
+  background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+  color: #fff;
+}
+
+.toolbar-btn-fullscreen:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.3);
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+}
+
+/* ==========================================================
+   ANİMASYONLAR — Sayfa yükleme, kart ve genel geçişler
+   ========================================================== */
+
+/* Fade in yukarı animasyonu */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Shimmer efekti — Hero banner */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Hero banner animasyonu */
+.hero-banner {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.08) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 4s ease-in-out infinite;
+  border-radius: 20px;
+}
+
+/* Kategori banner animasyonu */
+.category-banner {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Oyun kartları staggered animasyon */
+.game-grid {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.game-card {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+.game-card:nth-child(1) { animation-delay: 0.02s; }
+.game-card:nth-child(2) { animation-delay: 0.04s; }
+.game-card:nth-child(3) { animation-delay: 0.06s; }
+.game-card:nth-child(4) { animation-delay: 0.08s; }
+.game-card:nth-child(5) { animation-delay: 0.10s; }
+.game-card:nth-child(6) { animation-delay: 0.12s; }
+.game-card:nth-child(7) { animation-delay: 0.14s; }
+.game-card:nth-child(8) { animation-delay: 0.16s; }
+.game-card:nth-child(9) { animation-delay: 0.18s; }
+.game-card:nth-child(10) { animation-delay: 0.20s; }
+.game-card:nth-child(11) { animation-delay: 0.22s; }
+.game-card:nth-child(12) { animation-delay: 0.24s; }
+
+/* Kategori chips animasyon */
+.category-chips {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.category-chip {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-chip:hover {
+  transform: translateY(-2px);
+}
+
+/* Bölüm başlıkları animasyon */
+.section-header {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Oyun sayfası animasyonlar */
+.game-player-container {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.game-toolbar {
+  animation: fadeInUp 0.4s ease-out 0.1s both;
+}
+
+.game-info {
+  animation: fadeInUp 0.5s ease-out 0.15s both;
+}
+
+.related-games {
+  animation: slideInRight 0.5s ease-out 0.2s both;
+}
+
+/* Sidebar animasyon geliştirmesi */
+.sidebar {
+  transition: left 350ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.sidebar-link {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-link:hover {
+  transform: translateX(4px);
+}
+
+/* Header hover geliştirmesi */
+.header-inner {
+  transition: box-shadow 0.3s ease;
+}
+
+.header-inner:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* Arama focus animasyonu */
+.search-input:focus {
+  transform: scaleX(1.02);
+}
+
+/* Footer link hover efekti */
+.footer-links a {
+  position: relative;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width 0.25s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* Yasal sayfalar animasyon */
+.legal-page .legal-header {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.legal-page .legal-content {
+  animation: fadeInUp 0.5s ease-out 0.1s both;
+}
+
+/* İletişim formu animasyon */
+.contact-form {
+  animation: fadeInUp 0.4s ease-out 0.15s both;
+}
+
+/* ==========================================================
+   RESPONSIVE — Toolbar
+   ========================================================== */
+@media (max-width: 768px) {
+  .game-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+
+  .game-toolbar-actions {
+    justify-content: space-between;
+  }
+
+  .toolbar-btn {
+    padding: 6px 8px;
+    font-size: 0.7rem;
+  }
+
+  .toolbar-btn span {
+    display: none;
+  }
+
+  .toolbar-btn-fullscreen span {
+    display: inline;
+  }
+
+  .toolbar-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Reduced motion — erişilebilirlik */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
