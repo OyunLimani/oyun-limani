@@ -108,7 +108,17 @@ export default function GamePage() {
       {/* Oyun Oynatıcı */}
       <div className="game-player-container" id="game-player">
         <iframe
-          src={game.iframeUrl}
+          src={(() => {
+            try {
+              const url = new URL(game.iframeUrl);
+              if (typeof window !== "undefined") {
+                url.searchParams.set("gd_sdk_referrer_url", window.location.origin);
+              }
+              return url.toString();
+            } catch {
+              return game.iframeUrl;
+            }
+          })()}
           className="game-iframe"
           title={game.title}
           allow="autoplay; fullscreen; gamepad"

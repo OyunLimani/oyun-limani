@@ -27,10 +27,10 @@ export default function ClientLayout({
         <div className="footer-inner">
           <div className="footer-links">
             <a href="/">Ana Sayfa</a>
-            <a href="#">Hakkımızda</a>
-            <a href="#">Gizlilik Politikası</a>
-            <a href="#">Kullanım Şartları</a>
-            <a href="#">İletişim</a>
+            <a href="/hakkimizda">Hakkımızda</a>
+            <a href="/gizlilik">Gizlilik Politikası</a>
+            <a href="/kullanim-sartlari">Kullanım Şartları</a>
+            <a href="/iletisim">İletişim</a>
           </div>
           <p>© 2026 OyunLimanı — Ücretsiz online oyun platformu. Tüm hakları saklıdır.</p>
         </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { DEMO_GAMES } from "@/lib/demo-data";
 import { Game } from "@/types/game";
+import { getGames } from "@/lib/firebase/games";
 
 export default function Header({
   onMenuToggle,
@@ -13,18 +14,34 @@ export default function Header({
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Game[]>([]);
   const [showResults, setShowResults] = useState(false);
+  const [allGames, setAllGames] = useState<Game[]>(DEMO_GAMES);
   const searchRef = useRef<HTMLDivElement>(null);
+
+  // Firestore'dan oyunları bir kez çek
+  useEffect(() => {
+    async function fetchAllGames() {
+      try {
+        const firestoreGames = await getGames(500);
+        if (firestoreGames.length > 0) {
+          setAllGames(firestoreGames);
+        }
+      } catch {
+        // Hata durumunda demo veriler kullanılır
+      }
+    }
+    fetchAllGames();
+  }, []);
 
   useEffect(() => {
     if (query.length < 2) {
       setResults([]);
       return;
     }
-    const filtered = DEMO_GAMES.filter((g) =>
+    const filtered = allGames.filter((g) =>
       g.title.toLowerCase().includes(query.toLowerCase())
     );
-    setResults(filtered.slice(0, 5));
-  }, [query]);
+    setResults(filtered.slice(0, 6));
+  }, [query, allGames]);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -125,3 +142,4 @@ export default function Header({
     </header>
   );
 }
+
