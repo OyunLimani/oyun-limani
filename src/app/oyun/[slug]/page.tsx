@@ -25,9 +25,8 @@ export default function GamePage() {
   useEffect(() => {
     async function fetchGame() {
       try {
-        // Firestore'dan çek (AdSense onayından sonra açılacak)
-        // let foundGame = await getGameBySlug(slug);
-        let foundGame = DEMO_GAMES.find((g) => g.slug === slug); // TODO: AdSense onayından sonra bu satırı silin
+        // Firestore'dan çek
+        let foundGame = await getGameBySlug(slug);
 
         if (!foundGame) {
           // Demo verilerden dene
