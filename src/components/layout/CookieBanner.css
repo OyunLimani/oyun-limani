@@ -1,0 +1,63 @@
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-bg, #1e1e24);
+  color: var(--text, #f0f0f0);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+}
+
+.cookie-content {
+  flex: 1;
+  margin-right: 24px;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.cookie-content a {
+  color: var(--accent, #3b82f6);
+  text-decoration: underline;
+  margin-left: 4px;
+}
+
+.cookie-btn {
+  background-color: var(--accent, #3b82f6);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.cookie-btn:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+  .cookie-content {
+    margin-right: 0;
+    text-align: center;
+  }
+  .cookie-btn {
+    width: 100%;
+  }
+}

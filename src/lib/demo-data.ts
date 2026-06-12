@@ -11,6 +11,14 @@ export const DEMO_GAMES: Game[] = [
     title: "Subway Surfers",
     slug: "subway-surfers",
     description: "Subway Surfers, sonsuz bir koşu oyunudur. Trenlerden kaçın, bozuk para toplayın ve yeni karakterlerin kilidini açın!",
+    articleHTML: `
+      <h3>Subway Surfers İncelemesi ve Taktikleri</h3>
+      <p>Subway Surfers, web tabanlı oyun dünyasının en ikonik sonsuz koşu oyunlarından biridir. Yıllar geçmesine rağmen popülerliğini koruyan bu efsanevi oyun, hızlı refleksler ve dikkatli bir strateji gerektiriyor. Oyunda amacınız, huysuz bir güvenlik görevlisinden ve onun köpeğinden kaçmak.</p>
+      <p>Oyunun grafikleri oldukça renkli ve dinamik. Farklı şehirlerde geçen temalarıyla her seferinde yeni bir görsel deneyim sunuyor. Rayların üzerinde koşarken, trenlerin üstünden atlamalı, engellerin altından kaymalı ve aynı zamanda altınları toplamalısınız. Topladığınız altınlar ile yeni karakterler açabilir veya karakterinizin yeteneklerini geliştirebilirsiniz.</p>
+      <h4>Nasıl Daha Yüksek Skor Yapılır?</h4>
+      <p>Yüksek skor yapmanın en önemli kuralı, panik yapmamak ve her zaman birkaç adım ilerisini görmektir. Uçan kaykayları (hoverboard) stratejik zamanlarda kullanmak hayat kurtarır. Özellikle oyun çok hızlandığında, hata yapma payınız çok düşüktür; bu anlarda bir kaykay kullanmak size ikinci bir şans verir. Ayrıca, jetpack ve mıknatıs güçlendirmelerini olabildiğince hızlı şekilde maksimum seviyeye çıkarmanız, puanınızı katlayacaktır.</p>
+      <p>OyunLimanı üzerinden indirme yapmadan, tamamen ücretsiz olarak Subway Surfers oynayabilirsiniz. Yüksek skorlarınızı arkadaşlarınızla paylaşmayı unutmayın!</p>
+    `,
     instructions: "Kaymak için sola/sağa kaydırın. Zıplamak için yukarı, kaymak için aşağı kaydırın.",
     category: { name: "Aksiyon", slug: "aksiyon" },
     thumbnailUrl: "https://img.gamedistribution.com/d7a529f0e0e94e39a5b6cfe4b0942e89-512x512.jpeg",
@@ -26,6 +34,14 @@ export const DEMO_GAMES: Game[] = [
     title: "Temple Run 2",
     slug: "temple-run-2",
     description: "Temple Run 2'de tapınaktan kaçışınıza devam edin! Yeni engeller, güçlendirmeler ve ortamlar sizi bekliyor.",
+    articleHTML: `
+      <h3>Temple Run 2: Sonsuz Maceranın Sırları</h3>
+      <p>Temple Run 2, mobil oyun sektörüne yön veren efsanevi koşu oyununun mükemmel bir devamı niteliğindedir. İlk oyunun başarısının ardından, geliştirilmiş grafikler, yeni engeller ve çok daha dinamik bir oynanış ile karşımıza çıkıyor. Terk edilmiş bir tapınakta, peşinizdeki devasa bir canavardan kaçarken ne kadar uzağa gidebileceğinizi test ediyorsunuz.</p>
+      <p>Oyunda sadece koşmakla kalmıyor, aynı zamanda iplere tutunarak kayıyor, maden arabalarıyla tehlikeli tünellerden geçiyor ve sarp uçurumların kenarından zıplıyorsunuz. Her saniye artan hız ve zorlaşan engeller, oyunun adrenalini sürekli yüksek tutmasını sağlıyor.</p>
+      <h4>Altın Toplamak Neden Önemli?</h4>
+      <p>Topladığınız altınlarla, koşucunuzun özelliklerini geliştirebilirsiniz. "Coin Magnet" (Altın Mıknatısı) ve "Boost" (Hızlandırıcı) gibi özellikleri yükseltmek, daha uzun süre hayatta kalmanıza yardımcı olacaktır. Ayrıca yeşil elmasları (gem) biriktirerek öldüğünüzde oyuna kaldığınız yerden devam edebilirsiniz.</p>
+      <p>Hemen şimdi OyunLimanı ayrıcalığı ile Temple Run 2'yi indirmeden, tarayıcınız üzerinden yüksek kalitede oynayabilirsiniz. En uzak mesafeye koşmaya hazır mısınız?</p>
+    `,
     instructions: "Kaydırarak yön değiştirin, eğilerek engellerden kaçının.",
     category: { name: "Macera", slug: "macera" },
     thumbnailUrl: "https://img.gamedistribution.com/9f47ae0890c14a72ac2c4f3cb1e8e685-512x512.jpeg",

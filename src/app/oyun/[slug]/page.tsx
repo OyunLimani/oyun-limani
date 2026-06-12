@@ -277,6 +277,14 @@ export default function GamePage() {
             </div>
           )}
 
+          {game.articleHTML && (
+            <div 
+              className="game-article-content" 
+              style={{ marginTop: 24, paddingTop: 20, borderTop: "1px solid rgba(0,0,0,0.06)", lineHeight: 1.8 }}
+              dangerouslySetInnerHTML={{ __html: game.articleHTML }}
+            />
+          )}
+
           {/* İstatistikler */}
           <div style={{ display: "flex", gap: 28, marginTop: 18, paddingTop: 14, borderTop: "1px solid rgba(0,0,0,0.06)" }}>
             <div>

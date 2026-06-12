@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Header from "@/components/layout/Header";
 import Sidebar from "@/components/layout/Sidebar";
+import CookieBanner from "@/components/layout/CookieBanner";
 
 export default function ClientLayout({
   children,
@@ -35,6 +36,7 @@ export default function ClientLayout({
           <p>© 2026 OyunLimanı — Ücretsiz online oyun platformu. Tüm hakları saklıdır.</p>
         </div>
       </footer>
+      <CookieBanner />
     </>
   );
 }

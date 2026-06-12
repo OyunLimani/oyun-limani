@@ -5,6 +5,7 @@ export interface Game {
   title: string;
   slug: string;
   description: string;
+  articleHTML?: string;
   instructions: string;
   category: {
     name: string;
