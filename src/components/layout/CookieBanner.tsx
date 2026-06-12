@@ -26,7 +26,7 @@ export default function CookieBanner() {
     <div className="cookie-banner">
       <div className="cookie-content">
         <p>
-          OyunLimanı, size en iyi deneyimi sunmak ve reklamları kişiselleştirmek için çerezleri kullanır. 
+          Oyun Limanı, size en iyi deneyimi sunmak ve reklamları kişiselleştirmek için çerezleri kullanır. 
           Sitemizi kullanmaya devam ederek çerez kullanımımızı kabul etmiş olursunuz.
           Detaylı bilgi için 
           <Link href="/gizlilik">Gizlilik Politikamızı</Link> inceleyebilirsiniz.
