@@ -15,11 +15,12 @@ export default function HomePage() {
   useEffect(() => {
     async function fetchGames() {
       try {
-        const firestoreGames = await getGames(100);
-        if (firestoreGames.length > 0) {
-          setGames(firestoreGames);
-        }
-        // Firestore boşsa demo veriler kalır
+        // const firestoreGames = await getGames(100);
+        // if (firestoreGames.length > 0) {
+        //   setGames(firestoreGames);
+        // }
+        // TODO: AdSense onayından sonra üstteki satırları açın, alttaki demo atamasını silin
+        setGames(DEMO_GAMES);
       } catch (err) {
         console.log("Firestore'dan veri çekilemedi, demo veriler kullanılıyor:", err);
       } finally {
